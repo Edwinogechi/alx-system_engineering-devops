@@ -2,19 +2,19 @@
 # This script give info by checking if a file exists and/or is empty
 
 
-if [ -e $school ]
+if [ -e school ]
 then
 	echo "school file exists"
-	if [ -s $school ]
+	if [ -s school ]
 	then
 		echo "school file is not empty"
-		if [ -f $school ]
+		if [ -f school ]
 		then
 			echo "school is a regular file"
 		fi
 	else
 		echo "school file is empty"
-		if [ -f $school ]
+		if [ -f school ]
 		then
 			echo "school is a regular file"
 		fi
