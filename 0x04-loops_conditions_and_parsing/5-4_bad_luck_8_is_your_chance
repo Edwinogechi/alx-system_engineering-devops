@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# This script loops 1-10 printing "Best School"
+# Displays "bad luck" in 4th loop iteration
+# Displays "good luck" for the 8th loop iteration
+count=0
+while [ $count -lt 10 ]
+do
+	if [ $count -eq 3 ]
+	then
+		echo "bad luck"
+	elif [ $count = 7 ]
+	then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+        ((count++))
+done
