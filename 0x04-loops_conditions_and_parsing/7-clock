@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Prints 12 hours and 59 minutes
+# Display hours from 0 to 12
+# Display minutes in 1 hour that is from one to fifty nine
+
+hour=0
+while [ $hour -le 12 ]
+do
+	echo "Hour: $hour"
+	MINUTE=1
+	while [ $MINUTE -le 59 ]
+	do
+		echo "$MINUTE"
+		((MINUTE ++))
+	done
+	hour=$((hour + 1))
+done
