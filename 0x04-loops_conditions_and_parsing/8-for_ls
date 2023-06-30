@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script prints files in current directory in list format
+# With only the part of the name after the first of the dash displayed
+for file in $( ls ):
+do
+	echo "$file" | cut -d "-" -f2
+done
