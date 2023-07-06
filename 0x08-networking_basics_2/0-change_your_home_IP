@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Update localhost to 127.0.0.2 and alias facebook to 8.8.8.8 using hf
+
+# First create a backup of the hosts file
+cp /etc/hosts ~/hosts.new
+
+# Modify the entry for localhost in the backup file
+sed -i 's/127.0.0.1	localhost/127.0.0.2	localhost/' ~/hosts.new
+
+# Add a new entry for facebook.com at the beginning of the backup file
+sed -i '1s/^/8.8.8.8	facebook.com\n/' ~/hosts.new
+
+# Replace the original hosts file with the modified backup file
+cp -f ~/hosts.new /etc/hosts
