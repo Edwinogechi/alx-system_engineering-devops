@@ -33,16 +33,20 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend dwincreatives.tech
+frontend dwincreatives-frontend
         bind 0:80
+        mode http
+        http-request redirect scheme https code 301 unless { ssl_fc }
+        http-request set-header X_Forwarded-Proto http
         default_backend web_servers
-frontend www-https-frontend
-    bind *:443 ssl crt /etc/letsencrypt/live/www.dwincreatives.tech/fullchain.pem
-    default_backend www-backend
+
+frontend dwincreatives-frontend-https
+        bind *:443 ssl crt /etc/haproxy/certs/dwinceatives.tech.pem
+        http-request set-header X-Forwarded-Proto https
+        default_backend clickviral-backend
 
 
 backend web_servers
         balance roundrobin
         server 267216-web-01 54.172.220.145
         server 267216-web-02 34.229.56.193
-
