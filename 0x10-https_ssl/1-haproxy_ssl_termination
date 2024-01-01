@@ -46,7 +46,7 @@ frontend dwincreatives-frontend-https
         default_backend dwincreatives-backend
 
 
-backend web_servers
+backen dwincreatives-backend
         balance roundrobin
-        server 267216-web-01 54.172.220.145
-        server 267216-web-02 34.229.56.193
+        server 267216-web-01 54.172.220.145:80 check
+        server 267216-web-02 34.229.56.193:80 check
