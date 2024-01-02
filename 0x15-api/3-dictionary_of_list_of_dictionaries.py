@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-A code script that, utilizing a provided REST API, 
-retrieves task progress details for a specified employee ID and 
+A code script that, utilizing a provided REST API,
+retrieves task progress details for a specified employee ID and
 exports the obtained data in the JSON format.
 """
 

@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 """
-A script that interfaces with a RESTful API, 
-retrieving data pertaining to the progress of tasks associated 
-with a specified employee ID. 
+A script that interfaces with a RESTful API,
+retrieving data pertaining to the progress of tasks associated
+with a specified employee ID.
 The script then exports this information in CSV format.
 """
 

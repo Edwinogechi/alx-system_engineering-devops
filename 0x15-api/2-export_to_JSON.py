@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-A program that leverages a RESTful API to obtain details 
-regarding the task progress of a specified employee ID, 
+A program that leverages a RESTful API to obtain details
+regarding the task progress of a specified employee ID,
 and subsequently exports the acquired information in the JSON format.
 
 """
