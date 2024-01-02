@@ -1,34 +1,35 @@
 #!/usr/bin/python3
-"""Request and get employee ID from API
 """
-
-from json import load
+gather employee data from API
+"""
+import json
 import requests
 from sys import argv
 
+
 if __name__ == "__main__":
 
-    def make_request(resource, param=None):
-        """Retrieve user from API url
-        """
-        url = 'https://jsonplaceholder.typicode.com/'
-        url += resource
-        if param:
-            url += ('?' + param[0] + '=' + param[1])
+    sessionReq = requests.Session()
 
-        # make request from the url
-        r = requests.get(url)
+    idEmp = argv[1]
+    idURL = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(idEmp)
+    nameURL = 'https://jsonplaceholder.typicode.com/users/{}'.format(idEmp)
 
-        # extract json response for the employee
-        r = r.json()
-        return r
+    employee = sessionReq.get(idURL)
+    employeeName = sessionReq.get(nameURL)
 
-    user = make_request('users', ('id', argv[1]))
-    tasks = make_request('todos', ('userId', argv[1]))
-    tasks_completed = [task for task in tasks if task['completed']]
+    json_req = employee.json()
+    name = employeeName.json()['name']
 
-    print('Employee {} is done with tasks({}/{}):'.format(user[0]['name'],
-                                                          len(tasks_completed),
-                                                          len(tasks)))
-    for task in tasks_completed:
-        print('\t {}'.format(task['title']))
+    totalTasks = 0
+
+    for done_tasks in json_req:
+        if done_tasks['completed']:
+            totalTasks += 1
+
+    print("Employee {} is done with tasks({}/{}):".
+          format(name, totalTasks, len(json_req)))
+
+    for done_tasks in json_req:
+        if done_tasks['completed']:
+            print("\t " + done_tasks.get('title'))
