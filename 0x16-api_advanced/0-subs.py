@@ -8,6 +8,13 @@ import requests
 def number_of_subscribers(subreddit):
     """
     Request the number of subscribers for a subreddit from the Reddit API.
+
+    Args:
+    - subreddit (str): The name of the subreddit.
+
+    Returns:
+    - int: The number of subscribers for the specified subreddit.
+           Returns 0 if the subreddit or API endpoint is not found.
     """
     # Set a custom User-Agent header to identify the source of the request
     user_agent = '0x16-api_advanced-jmajetich'
@@ -43,3 +50,4 @@ def number_of_subscribers(subreddit):
 # subreddit = 'example'
 # subscribers_count = number_of_subscribers(subreddit)
 # print(f'The number of subscribers in r/{subreddit}: {subscribers_count}')
+
